@@ -1,62 +1,70 @@
-# Job Board – Plateforme de recrutement
+# Bibliothèque universitaire – Plateforme de gestion en microservices
 
 ## 1. Présentation du projet
 
-Job Board est une plateforme web de recrutement qui facilite la mise en relation entre les recruteurs et les candidats.
+Cette plateforme web permet de gérer une bibliothèque universitaire sans registres papier.
 
-Elle permet aux recruteurs de publier des offres d'emploi et aux candidats de consulter les offres et de postuler en ligne.
+Elle permet aux bibliothécaires de gérer le catalogue, les emprunts et les amendes, et aux étudiants de rechercher des livres, de les emprunter et de suivre leurs emprunts en ligne.
 
 ## 2. Objectifs du projet
 
-- Faciliter la recherche d'emploi.
-- Simplifier la publication des offres.
-- Permettre aux candidats de postuler en ligne.
-- Faciliter la gestion des candidatures par les recruteurs.
+- Remplacer la gestion manuelle des emprunts et des retours.
+- Connaître en temps réel la disponibilité des livres.
+- Suivre automatiquement les retards et calculer les amendes.
+- Prévenir les étudiants (confirmation d'emprunt, rappel de retour).
 
 ## 3. Fonctionnalités principales
 
-### Côté candidat
+### Côté étudiant
 - Créer un compte et se connecter.
-- Consulter les offres d'emploi.
-- Rechercher et filtrer les offres.
-- Postuler à une offre.
-- Suivre ses candidatures.
+- Consulter et rechercher les livres.
+- Emprunter un livre disponible.
+- Retourner un livre.
+- Suivre ses emprunts et ses amendes.
 
-### Côté recruteur
-- Créer un compte et se connecter.
-- Publier une offre d'emploi.
-- Modifier et supprimer ses offres.
-- Consulter les candidatures.
-- Gérer les candidatures reçues.
+### Côté bibliothécaire
+- Ajouter, modifier et supprimer des livres.
+- Gérer les utilisateurs.
+- Suivre les emprunts en cours et les retards.
+- Gérer les amendes.
 
 ### Côté administrateur
-- Gérer les utilisateurs.
-- Gérer les offres d'emploi.
+- Gérer les comptes des bibliothécaires.
 - Superviser la plateforme.
 
-## 4. Structure du projet
+## 4. Microservices
+
+| Service | Rôle | Base de données | Responsable |
+|---|---|---|---|
+| book-service | Catalogue et disponibilité des livres | [BD] | [Nom] |
+| user-service | Comptes étudiants et bibliothécaires | [BD] | [Nom] |
+| loan-service | Emprunts et retours | PostgreSQL | Fatma Chelbi |
+| fine-service | Amendes et pénalités | [BD] | [Nom] |
+| notification-service | Notifications (service commun) | — | Toute l'équipe |
+
+## 5. Structure du projet
 
 ```text
-jobBoard-4SSA10/
+bibliotheque-4SSA10/
 │
-├── Backend/          # Partie serveur et API
+├── Backend/          # Microservices, API Gateway, Eureka
 ├── Frontend/         # Interface utilisateur
-├── Documentation/    # Documentation du projet
+├── Documentation/    # Présentation, diagrammes, dossier technique
 └── README.md         # Présentation du projet
 ```
 
-## 5. Technologies utilisées
+## 6. Technologies utilisées
 
 Les technologies utilisées seront précisées selon les choix techniques du projet.
 
-## 6. Installation et lancement
+## 7. Installation et lancement
 
 Les instructions d'installation et de lancement seront ajoutées après la configuration du Backend et du Frontend.
 
-## 7. Équipe du projet
+## 8. Équipe du projet
 
-Projet réalisé dans le cadre d'un travail académique en équipe.
+Projet réalisé dans le cadre d'un travail académique en équipe (4SSA10).
 
-## 8. Statut du projet
+## 9. Statut du projet
 
-En cours de développement.
+En cours de conception.
